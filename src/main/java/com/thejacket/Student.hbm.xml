@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.thejacket">
+
+    <class name="Student" table="STUDENT">
+
+        <id name="id" column="ID">
+            <generator class="native"/>
+        </id>
+
+        <property name="imie" column="IMIE"/>
+        <property name="nazwisko" column="NAZWISKO"/>
+        <property name="kierunek" column="KIERUNEK"/>
+        <property name="pesel" column="PESEL"/>
+        <property name="telefon" column="TELEFON"/>
+        <property name="mail" column="MAIL"/>
+
+    </class>
+
+</hibernate-mapping>
