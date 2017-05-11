@@ -4,6 +4,7 @@ import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -36,16 +37,12 @@ public class SignInViewController {
     @FXML
     void signIn(ActionEvent event) throws IOException {
         if (loginField.getText().equals(loginArg) && pwField.getText().equals(pwArg)) {
-            Stage stage;
             Parent root;
-            //get reference to the button's stage
-            stage = (Stage) signInButton.getScene().getWindow();
-            //load up OTHER FXML document
             root = FXMLLoader.load(getClass().getResource("/mainview.fxml"));
-            //create a new scene with root and set the stage
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage.setResizable(true);
+            stage.setScene(new Scene(root));
+            stage.centerOnScreen();
         } else {
             WrongCredentialsText.setVisible(true);
             FadeTransition ft = new FadeTransition();

@@ -1,15 +1,20 @@
 package com.thejacket;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sun.plugin.javascript.navig.Anchor;
 
 import java.io.IOException;
 
@@ -18,56 +23,44 @@ import java.io.IOException;
  */
 public class MainViewController {
 
-        @FXML
-        private Tab StudenciTabButton;
 
-        @FXML
-        private Tab PrzedmiotyTabButton;
+    @FXML
+    private TextField textField;
 
-        @FXML
-        private Tab GrupyTabButton;
+    @FXML
+    private Button signOutButton;
 
-        @FXML
-        private Tab ProtokołyTabButton;
+    @FXML
+    private AnchorPane anchorPane;
 
-        @FXML
-        private Button signOutButton;
+    @FXML
+    private SplitPane studenciAnchorPane;
 
-        @FXML
-        private Text signedAsText;
+    @FXML
+    private TabPane tabPane;
 
-        @FXML
-        void showGrupy(ActionEvent event) {
+    //@FXML
+    //private ProtokolyController protokolyController;
 
-        }
 
-        @FXML
-        void showProtokoły(ActionEvent event) {
+    @FXML
+    void initialize() {
+        /*
+        anchorPane.setTopAnchor(studenciAnchorPane,0.0);
+        anchorPane.setBottomAnchor(studenciAnchorPane,0.0);
+        anchorPane.setLeftAnchor(studenciAnchorPane,0.0);
+        anchorPane.setRightAnchor(studenciAnchorPane, 0.0); nie działa!!! */
+        System.out.println("one");
 
-        }
+    }
 
-        @FXML
-        void showPrzedmioty(ActionEvent event) {
-
-        }
-
-        @FXML
-        void showStudenci(ActionEvent event) {
-
-        }
-
-        @FXML
+    @FXML
         void signOut(ActionEvent event) throws IOException {
-            Stage stage;
-            Parent root;
-            //get reference to the button's stage
-            stage = (Stage) signOutButton.getScene().getWindow();
-            //load up OTHER FXML document
-            root = FXMLLoader.load(getClass().getResource("/signinview.fxml"));
-            //create a new scene with root and set the stage
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("/signinview.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
 
         }
 

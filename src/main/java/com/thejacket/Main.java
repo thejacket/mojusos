@@ -16,15 +16,22 @@ public class Main extends Application {
         launch(args);
     }
 
+
     @Override
     public void start(Stage primaryStage) {
         try {
-            Pane root = FXMLLoader.load(getClass().getResource("/signinview.fxml"));
-            Scene scene = new Scene(root,600,300);
+            Parent root;
+            //get reference to the button's stage
+            //load up OTHER FXML document
+            root = FXMLLoader.load(getClass().getResource("/signinview.fxml"));
+            //create a new scene with root and set the stage
+            Scene scene = new Scene(root);
+            primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
-        } catch(Exception e) {
-            e.printStackTrace();
+            primaryStage.centerOnScreen();
+
+        } catch (Exception ex) {
         }
     }
 }
