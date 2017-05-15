@@ -14,7 +14,7 @@ public class Account {
         this.password = password;
     }
 
-    public void setRightsToChangeThings(boolean b) {
+    public void setRights(boolean b) {
         this.rights = b;
     }
 
@@ -31,4 +31,5 @@ public class Account {
         this.password = password;
         this.rights = rights;
     }
+
 }

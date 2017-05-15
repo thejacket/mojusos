@@ -42,6 +42,11 @@ public class MainViewController {
     //@FXML
     //private ProtokolyController protokolyController;
 
+    private Authentication auth;
+
+    @FXML
+    private Text loggedAsText;
+
 
     @FXML
     void initialize() {
@@ -50,7 +55,8 @@ public class MainViewController {
         anchorPane.setBottomAnchor(studenciAnchorPane,0.0);
         anchorPane.setLeftAnchor(studenciAnchorPane,0.0);
         anchorPane.setRightAnchor(studenciAnchorPane, 0.0); nie działa!!! */
-        System.out.println("one");
+        loggedAsText.setText(loggedAsText.getText() + auth.getAuthenticatedLogin());
+        //System.out.println("one");
 
     }
 
@@ -63,6 +69,7 @@ public class MainViewController {
         stage.setScene(new Scene(root));
 
         }
+
 
     }
 

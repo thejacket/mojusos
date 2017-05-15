@@ -2,26 +2,25 @@
 
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<SplitPane fx:id="splitPane" dividerPositions="0.2537688442211055" layoutX="-7.0" layoutY="1.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="609.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studenciController">
+<SplitPane fx:id="splitPane" dividerPositions="0.2537688442211055" layoutX="-7.0" layoutY="1.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="609.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thejacket.studenciController">
    <items>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="97.0" prefWidth="592.0">
          <children>
-            <TreeTableView layoutX="14.0" layoutY="-3.0" prefHeight="322.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-               <columnResizePolicy>
-                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-               <columns>
-                  <TreeTableColumn prefWidth="75.0" text="Imię" />
-                  <TreeTableColumn prefWidth="75.0" text="Kierunek" />
-                  <TreeTableColumn prefWidth="75.0" text="Numer indeksu" />
-                  <TreeTableColumn prefWidth="75.0" text="PESEL" />
-               </columns>
-            </TreeTableView>
+            <TableView fx:id="studenciTableView" layoutX="15.0" prefHeight="97.0" prefWidth="587.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                  <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="imieTableColumn" prefWidth="75.0" text="Imię" />
+                <TableColumn fx:id="nazwiskoTableColumn" prefWidth="75.0" text="Nazwisko" />
+                  <TableColumn fx:id="kierunekTableColumn" prefWidth="75.0" text="Kierunek" />
+                  <TableColumn fx:id="peselTableColumn" prefWidth="75.0" text="PESEL" />
+                  <TableColumn fx:id="mailTableColumn" prefWidth="75.0" text="mail" />
+              </columns>
+            </TableView>
          </children>
       </AnchorPane>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="362.0" prefWidth="607.0">

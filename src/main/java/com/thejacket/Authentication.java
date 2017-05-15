@@ -5,15 +5,26 @@ package com.thejacket;
  */
 public class Authentication {
 
-    private String authenticatedLogin;
-    private String authenticatedPw;
+    private static String authenticatedLogin;
+    private static String authenticatedPw;
 
-    public String getAuthenticatedLogin() {
+    public static String getAuthenticatedLogin() {
         return authenticatedLogin;
     }
-    public String getAuthenticatedPw() {
+
+    public static String getAuthenticatedPw() {
         return authenticatedPw;
     }
+
+    public static void setAuthenticatedLogin(String s) {
+        authenticatedLogin = s;
+    }
+
+    public static void setAuthenticatedPw(String s) {
+        authenticatedPw = s;
+    }
+}
+
 /*
     public boolean checkDbCredentials() {
         boolean dbCheck;
@@ -31,5 +42,3 @@ public class Authentication {
         -> jesli nie, wyslij bool false
         -> przechowuj w obiekcie Authentication
      */
-
-}

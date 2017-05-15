@@ -1,110 +1,158 @@
 package com.thejacket;
 
+import javax.persistence.*;
+import java.lang.String;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 import org.hibernate.Session;
 
 /**
  * Created by mariusz on 2017-05-11.
  */
+@Entity
+@Table(name = "STUDENT")
 public class Student extends Osoba {
 
-    private int id;
-    private int pesel;
-    private int telefon;
+    //@Column(name = "id")
+    private IntegerProperty idProperty = new SimpleIntegerProperty();
+    //@Column(name = "pesel")
+    private StringProperty peselProperty = new SimpleStringProperty();
+    //@Column(name = "telefon")
+    private StringProperty telefonProperty = new SimpleStringProperty();
 
-    private String imie;
-    private String nazwisko;
-    private String kierunek;
-    private String mail;
+    //@Column(name = "imie")
+    private StringProperty imieProperty = new SimpleStringProperty();
+   // @Column(name = "nazwisko")
+    private StringProperty nazwiskoProperty = new SimpleStringProperty();
+    //@Column(name = "kierunek")
+    private StringProperty kierunekProperty = new SimpleStringProperty();
+    //@Column(name = "mail")
+    private StringProperty mailProperty = new SimpleStringProperty();
 
-    private Image zdjecie;
+    private studenciController controller;
 
-    public void Student(int pesel, int telefon, String imie, String nazwisko, String kierunek, String mail){
-        this.pesel = pesel;
-        this.telefon = telefon;
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.kierunek = kierunek;
-        this.mail = mail;
+    public IntegerProperty idProperty() {
+        return idProperty ;
+    }
+    @Id @GeneratedValue
+    @Column(name = "id")
+    public final Integer getId() {
+        return this.idProperty().get();
+    }
+
+    public final void setId(Integer id) {
+        idProperty().set(id);
+    }
+
+    public StringProperty imieProperty() {
+        return imieProperty ;
+    }
+    @Column(name = "imie")
+    public final String getImie() {
+        return this.imieProperty().get();
+    }
+
+    public final void setImie(String imie) {
+        imieProperty().set(imie);
+    }
+
+    public StringProperty nazwiskoProperty() {
+        return nazwiskoProperty ;
+    }
+    @Column(name = "nazwisko")
+    public final String getNazwisko() {
+        return this.nazwiskoProperty().get();
+    }
+
+    public final void setNazwisko(String nazwisko) {
+        nazwiskoProperty().set(nazwisko);
+    }
+
+    public StringProperty peselProperty() {
+        return peselProperty ;
+    }
+    @Column(name = "pesel")
+    public final String getPesel() {
+        return this.peselProperty().get();
+    }
+
+    public final void setPesel(String pesel) {
+        peselProperty().set(pesel);
+    }
+
+    public StringProperty kierunekProperty() {
+        return kierunekProperty ;
+    }
+    @Column(name = "kierunek")
+    public final String getKierunek() {
+        return this.kierunekProperty().get();
+    }
+
+    public final void setKierunek(String kierunek) {
+        kierunekProperty().set(kierunek);
+    }
+
+    public StringProperty mailProperty() {
+        return mailProperty ;
+    }
+    @Column(name = "mail")
+    public final String getMail() {
+        return this.mailProperty().get();
+    }
+
+    public final void setMail(String mail) {
+        mailProperty().set(mail);
+    }
+
+    public StringProperty telefonProperty() {
+        return telefonProperty ;
+    }
+    @Column(name = "telefon")
+    public final String getTelefon() {
+        return this.telefonProperty().get();
+    }
+
+    public final void setTelefon(String telefon) {
+        mailProperty().set(telefon);
+
+    }
+
+    public Student(){}
+
+    public Student(String pesel, String telefon, String imie, String nazwisko, String kierunek, String mail){
+        peselProperty = new SimpleStringProperty(pesel);
+        telefonProperty = new SimpleStringProperty(telefon);
+
+        imieProperty = new SimpleStringProperty(imie);
+        nazwiskoProperty = new SimpleStringProperty(nazwisko);
+        kierunekProperty = new SimpleStringProperty(kierunek);
+        mailProperty = new SimpleStringProperty(mail);
 
         createNewStudentInDb();
     }
 
+
     public void createNewStudentInDb(){
         Session session = HibernateSession.getSessionFactory().getCurrentSession();
+        //Session session = HibernateSession.getSessionFactory().openSession();
         session.beginTransaction();
 
         session.save(this);
 
         session.getTransaction().commit();
 
-        HibernateSession.getSessionFactory().close();
+        //HibernateSession.getSessionFactory().close();                 //with this exc: DataHolder.update : entitymanagerfactory is closed ????
+                                                                        //is this because of running static methods?
+
     }
 
 
 
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setPesel(int pesel) {
-        this.pesel = pesel;
-    }
-
-    public void setTelefon(int telefon) {
-        this.telefon = telefon;
-    }
-
-    public void setImie(String imie) {
-        this.imie = imie;
-    }
-
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
-    }
-
-    public void setKierunek(String kierunek) {
-        this.kierunek = kierunek;
-    }
-
-    public void setZdjecie(Image zdjecie) {
-        this.zdjecie = zdjecie;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getPesel() {
-        return pesel;
-    }
-
-    public int getTelefon() {
-        return telefon;
-    }
-
-    public String getImie() {
-        return imie;
-    }
-
-    public String getNazwisko() {
-        return nazwisko;
-    }
-
-    public String getKierunek() {
-        return kierunek;
-    }
-
-    public Image getZdjecie() {
-        return zdjecie;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
+    public String toString(){
+        return "Student" + this.idProperty + ": " + this.imieProperty + " " + this.nazwiskoProperty;
     }
 }

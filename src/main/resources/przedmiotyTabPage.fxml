@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <!-- "AnchorPane" in next line relates to parent anchor in mainview.fxml. this is huge -->
 
-<SplitPane dividerPositions="0.8015075376884422" layoutX="-7.0" layoutY="1.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="609.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane fx:id="splitPane" dividerPositions="0.8015075376884422" layoutX="-7.0" layoutY="1.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="609.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-            <children>
-                <TreeTableView layoutX="14.0" layoutY="-3.0" prefHeight="322.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                    <columnResizePolicy>
-                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                    </columnResizePolicy>
-                    <columns>
-                        <TreeTableColumn prefWidth="75.0" text="Przedmiot" />
-                        <TreeTableColumn prefWidth="75.0" text="Typ" />
-                        <TreeTableColumn prefWidth="75.0" text="Prowadzący" />
-                        <TreeTableColumn prefWidth="75.0" text="Wymiar godzin" />
-                        <TreeTableColumn prefWidth="75.0" text="ECTS" />
-                    </columns>
-                </TreeTableView>
-            </children>
+         <children>
+            <TableView fx:id="przedmiotyTableView" layoutX="5.0" layoutY="-1.0" prefHeight="322.0" prefWidth="607.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                  <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="nazwaTableColumn" prefWidth="75.0" text="Przedmiot" />
+                <TableColumn fx:id="typTableColumn" prefWidth="75.0" text="Typ" />
+                  <TableColumn fx:id="prowadzacyTableColumn" prefWidth="75.0" text="Prowadzący" />
+                  <TableColumn fx:id="wymiarGodzinTableColumn" prefWidth="75.0" text="Wymiar godzin" />
+                  <TableColumn fx:id="ectsTableColumn" prefWidth="75.0" text="ECTS" />
+                  <TableColumn fx:id="wydzialTableColumn" prefWidth="75.0" text="Wydział" />
+                  <TableColumn fx:id="programStudiow" prefWidth="75.0" text="Program" />
+              </columns>
+            </TableView>
+         </children>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="106.0" prefWidth="607.0" />
     </items>

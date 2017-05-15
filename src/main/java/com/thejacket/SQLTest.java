@@ -23,6 +23,7 @@ public class SQLTest {
 
                 connection = DriverManager.getConnection(url, user, password);     // connecting to db
                 statementObject = connection.createStatement();                    // create statement object for sending queries
+                /*
                 statementObject.executeUpdate("DROP TABLE Tabela1");
                 statementObject.executeUpdate("CREATE TABLE Tabela1 " +
                         "(" +
@@ -30,8 +31,9 @@ public class SQLTest {
                         "age INT NOT NULL," +
 
                         "PRIMARY KEY (id))");
-                /*statementObject.executeQuery("SELECT VERSION()");     // send string query, returns single ResultSet object
-                statementObject.executeUpdate("DROP TABLE Tabela1");
+                */
+                results = statementObject.executeQuery("SELECT VERSION()");     // send string query, returns single ResultSet object
+                /*statementObject.executeUpdate("DROP TABLE Tabela1");
                 statementObject.executeUpdate("CREATE TABLE Tabela1 " +
                         "(" +
                         "id INT NOT NULL AUTO_INCREMENT," +
@@ -58,11 +60,11 @@ public class SQLTest {
                 }*/
 
 
-                /*while (results.next()) {                                          // ResultSet has property of pointing to current row of data
+                if (results.next()) {                                          // ResultSet has property of pointing to current row of data
                                                                                  // initially, its positioned before first row
-                    System.out.println(results.getString("age"));      // result.next() returns false if there are no rows left
+                    System.out.println(results.getString(1));      // result.next() returns false if there are no rows left
 
-                }*/
+                }
 
 
 

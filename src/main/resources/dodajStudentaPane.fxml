@@ -6,13 +6,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="dodajStudentaPaneController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="142.0" layoutY="62.0" />
-      <TextField layoutX="142.0" layoutY="112.0" />
-      <TextField layoutX="142.0" layoutY="162.0" />
-      <TextField layoutX="142.0" layoutY="215.0" />
-      <TextField layoutX="142.0" layoutY="267.0" />
+      <TextField fx:id="imieField" layoutX="142.0" layoutY="62.0" />
+      <TextField fx:id="nazwiskoField" layoutX="142.0" layoutY="112.0" />
+      <TextField fx:id="kierunekField" layoutX="142.0" layoutY="162.0" />
+      <TextField fx:id="peselField" layoutX="142.0" layoutY="215.0" />
+      <TextField fx:id="telefonField" layoutX="142.0" layoutY="267.0" />
+      <TextField fx:id="mailField" layoutX="142.0" layoutY="322.0" text="\@student.uw.edu.pl" />
       <Text layoutX="106.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imię">
          <font>
             <Font size="14.0" />
@@ -33,7 +34,6 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="142.0" layoutY="322.0" text="\@student.uw.edu.pl" />
       <Text layoutX="41.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefon kontaktowy" textAlignment="RIGHT" wrappingWidth="93.4609375">
          <font>
             <Font size="14.0" />
@@ -50,6 +50,6 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Button layoutX="349.0" layoutY="322.0" mnemonicParsing="false" text="Dodaj studenta do bazy danych" />
+      <Button fx:id="dodajDoDbButton" layoutX="349.0" layoutY="322.0" mnemonicParsing="false" text="Dodaj studenta do bazy danych" />
    </children>
 </AnchorPane>

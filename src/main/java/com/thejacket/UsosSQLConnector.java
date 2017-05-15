@@ -13,8 +13,8 @@ public class UsosSQLConnector {
 
     public void connect() {
 
-        String url = "jdbc:mysql://db4free.net:3306/ppa2017db";
-        String user = "ppa2017db";
+        String url = "jdbc:mysql://db4free.net:3306/mojusosdb";
+        String user = "mojusosdb";
         String password = "ppa2017";
 
         try {
@@ -41,7 +41,7 @@ public class UsosSQLConnector {
         }
     }
 
-    public String sendUsosQuery(String query){
+    public ResultSet sendUsosQuery(String query){
         Statement st = null;
         ResultSet rs = null;
 
@@ -52,7 +52,7 @@ public class UsosSQLConnector {
             Logger lgr = Logger.getLogger(SQLTest.class.getName());
             lgr.log(Level.WARNING, exc.getMessage(), exc);
         }
-        return "";
+        return rs;
     }
 
     public void updateUsos(String s){

@@ -37,10 +37,13 @@ public class SignInViewController {
     @FXML
     void signIn(ActionEvent event) throws IOException {
         if (loginField.getText().equals(loginArg) && pwField.getText().equals(pwArg)) {
+            Authentication.setAuthenticatedLogin(loginField.getText());
+            Authentication.setAuthenticatedPw(pwField.getText());
             Parent root;
             root = FXMLLoader.load(getClass().getResource("/mainview.fxml"));
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setResizable(true);
+            stage.setMinWidth(600);
             stage.setScene(new Scene(root));
             stage.centerOnScreen();
         } else {
@@ -53,6 +56,7 @@ public class SignInViewController {
             ft.setCycleCount(666);
             ft.setAutoReverse(true);
             ft.play();
+
         }
     }
 }

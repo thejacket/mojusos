@@ -28,7 +28,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zalogowany jako:" wrappingWidth="178.6708984375" />
+      <Text fx:id = "loggedAsText" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zalogowany jako:  " wrappingWidth="178.6708984375" />
       <Button layoutX="511.0" layoutY="8.0" mnemonicParsing="false" onAction="#signOut" text="Wyloguj" AnchorPane.rightAnchor="14.0" />
       <TextField layoutX="315.0" layoutY="8.0" promptText="Szukaj" AnchorPane.rightAnchor="98.0" />
    </children>
