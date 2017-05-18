@@ -1,5 +1,6 @@
 package com.thejacket;
 
+import com.google.common.eventbus.EventBus;
 import com.thejacket.DataHolder;
 import com.thejacket.Student;
 import javafx.event.ActionEvent;
@@ -22,7 +23,9 @@ import java.util.List;
  */
 public class studenciController {
 
+
     ArrayList<Button> ButtonList = new ArrayList<Button>();
+
 
     @FXML
     ButtonBar studenciButtonBar;
@@ -55,17 +58,17 @@ public class studenciController {
     TableColumn<Student, String> peselTableColumn;
 
     @FXML
+    TableColumn<Student, String> telefonTableColumn;
+
+    @FXML
     TableColumn<Student, String> mailTableColumn;
 
     @FXML
     void initialize() {
 
-        //Student McNeil = new Student("PESELPESELPESLE", "cwel@gmail.com",
-        //        "Cwel", "Cwelerski", "Umbaba", "M@a.pl");
         studenciTableViewInitialize();
         splitPane.setDividerPosition(0, 0.8);
-        //studenciTableView.getItems().add(McNeil);
-        //studenciTreeTable.getItems().add(itemRoot);
+
         buttonsInitialize();
         buttonshbox.getChildren().addAll(ButtonList);
     }
@@ -76,6 +79,7 @@ public class studenciController {
         nazwiskoTableColumn.setCellValueFactory(cellData -> cellData.getValue().nazwiskoProperty());
         kierunekTableColumn.setCellValueFactory(cellData -> cellData.getValue().kierunekProperty());
         peselTableColumn.setCellValueFactory(cellData -> cellData.getValue().peselProperty());
+        telefonTableColumn.setCellValueFactory(cellData -> cellData.getValue().telefonProperty());
         mailTableColumn.setCellValueFactory(cellData -> cellData.getValue().mailProperty());
 
         studenciTableView.getItems().addAll(DataHolder.getStudentObjectsList());
@@ -136,14 +140,18 @@ public class studenciController {
 
     void usuńStudenta(){
         Student s = (Student) studenciTableView.getSelectionModel().getSelectedItem();
-        DataHolder.removeStudentFromDb(s.getId());
-        refreshstudenciTableView();
-        dodajStudentaPane.setVisible(false);
+        if (s != null) {
+            DataHolder.removeFromDb(s, s.getId());
+            refreshstudenciTableView();
+            dodajStudentaPane.setVisible(false);
+        }
     }
 
     void wyslijMailDoStudenta(){
 
     }
+
+
 
 
 }

@@ -38,7 +38,7 @@ public class Przedmiot {
 
     public Przedmiot(){}
 
-    public Przedmiot(String nazwa, String typ, String prowadzacy, Integer wymiarGodzin, Integer ects, String wydzial, ProgramStudiow program){
+    public Przedmiot(String nazwa, String typ, String prowadzacy, Integer wymiarGodzin, Integer ects, String wydzial){
         nazwaProperty = new SimpleStringProperty(nazwa);
         typProperty = new SimpleStringProperty(typ);
 
@@ -46,7 +46,7 @@ public class Przedmiot {
         wymiarGodzinProperty = new SimpleIntegerProperty(wymiarGodzin);
         ectsProperty = new SimpleIntegerProperty(ects);
         wydzialProperty = new SimpleStringProperty(wydzial);
-        programStudiow = program;
+        //programStudiow = program;
 
         createNewPrzedmiotInDb();
     }
@@ -66,8 +66,7 @@ public class Przedmiot {
     public IntegerProperty idProperty() {
         return idProperty ;
     }
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     @Column(name = "id")
     public final Integer getId() {
         return this.idProperty().get();
@@ -152,9 +151,13 @@ public class Przedmiot {
     public ProgramStudiow programStudiow() {
         return programStudiow;
     }
-    @Column(name = "programStudiow")
+    //@Column(name = "programStudiow")
     public final String getProgramStudiow() {
         return this.programStudiow().toString();
+    }
+
+    public final void setProgramStudiow(String program) {
+    //    programStudiow().set(program);
     }
 
 

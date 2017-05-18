@@ -21,6 +21,9 @@
                   <fx:include source="przedmiotyTabPage.fxml" fx:id ="przedmiotyAnchorPane"/>
               </content>
           </Tab>
+            <Tab text="Programy">
+                <fx:include source="programyTabPage.fxml" fx:id = "programyAnchorPane"/>
+            </Tab>
             <Tab text="Protokoły">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />

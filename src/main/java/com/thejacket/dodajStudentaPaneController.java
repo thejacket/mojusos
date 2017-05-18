@@ -1,3 +1,5 @@
+package com.thejacket;
+
 import com.thejacket.Student;
 import com.thejacket.studenciController;
 import javafx.event.ActionEvent;
@@ -15,6 +17,7 @@ import java.io.IOException;
  * Created by mariusz on 2017-05-11.
  */
 public class dodajStudentaPaneController {
+
     @FXML
     TextField imieField;
     @FXML
@@ -36,9 +39,10 @@ public class dodajStudentaPaneController {
 
     @FXML
     void initialize(){
+
         dodajDoDbButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-               new Student(peselField.getText(), telefonField.getText(), imieField.getText(), nazwiskoField.getText(), kierunekField.getText(), mailField.getText());
+               new Student(imieField.getText(), nazwiskoField.getText(), kierunekField.getText(), peselField.getText(), telefonField.getText(), mailField.getText());
             }
         });
     }

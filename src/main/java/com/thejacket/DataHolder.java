@@ -57,14 +57,18 @@ public class DataHolder {
         }
     }
 
-    public static void removeStudentFromDb(Integer i) {            // Integer id instead
+    public static void removeFromDb(Object o, Integer i) {            // Integer id instead
         Session sess = HibernateSession.getSessionFactory().openSession();
         Transaction tx = null;
         try {
 
             tx = sess.beginTransaction();
-
-            Object persistentInstance = sess.load(Student.class, i);
+            Object persistentInstance = null;
+            if(o.getClass() == Student.class) {
+                persistentInstance = sess.load(Student.class, i);
+            } else if (o.getClass() == Przedmiot.class) {
+                persistentInstance = sess.load(Przedmiot.class, i);
+            }
             if (persistentInstance != null) {
                 sess.delete(persistentInstance);
             }
@@ -81,6 +85,7 @@ public class DataHolder {
 
         }
     }
+
 
     public static List<Student> getStudentObjectsList(){
         update("studentList");

@@ -9,24 +9,30 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 import org.hibernate.Session;
+import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Index;
 
 /**
  * Created by mariusz on 2017-05-11.
  */
 @Entity
-@Table(name = "STUDENT")
+//@Indexed
+@Table(name = "Student")
 public class Student extends Osoba {
 
     //@Column(name = "id")
     private IntegerProperty idProperty = new SimpleIntegerProperty();
     //@Column(name = "pesel")
+    //@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
     private StringProperty peselProperty = new SimpleStringProperty();
     //@Column(name = "telefon")
     private StringProperty telefonProperty = new SimpleStringProperty();
 
     //@Column(name = "imie")
+    //@Field(index=Index.YES, analyze=Analyze.YES, store= Store.NO)
     private StringProperty imieProperty = new SimpleStringProperty();
    // @Column(name = "nazwisko")
+    //@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
     private StringProperty nazwiskoProperty = new SimpleStringProperty();
     //@Column(name = "kierunek")
     private StringProperty kierunekProperty = new SimpleStringProperty();
@@ -44,7 +50,7 @@ public class Student extends Osoba {
         return this.idProperty().get();
     }
 
-    public final void setId(Integer id) {
+    public void setId(Integer id) {
         idProperty().set(id);
     }
 
@@ -52,11 +58,11 @@ public class Student extends Osoba {
         return imieProperty ;
     }
     @Column(name = "imie")
-    public final String getImie() {
+    public String getImie() {
         return this.imieProperty().get();
     }
 
-    public final void setImie(String imie) {
+    public void setImie(String imie) {
         imieProperty().set(imie);
     }
 
@@ -64,11 +70,11 @@ public class Student extends Osoba {
         return nazwiskoProperty ;
     }
     @Column(name = "nazwisko")
-    public final String getNazwisko() {
+    public String getNazwisko() {
         return this.nazwiskoProperty().get();
     }
 
-    public final void setNazwisko(String nazwisko) {
+    public void setNazwisko(String nazwisko) {
         nazwiskoProperty().set(nazwisko);
     }
 
@@ -76,11 +82,11 @@ public class Student extends Osoba {
         return peselProperty ;
     }
     @Column(name = "pesel")
-    public final String getPesel() {
+    public String getPesel() {
         return this.peselProperty().get();
     }
 
-    public final void setPesel(String pesel) {
+    public void setPesel(String pesel) {
         peselProperty().set(pesel);
     }
 
@@ -88,11 +94,11 @@ public class Student extends Osoba {
         return kierunekProperty ;
     }
     @Column(name = "kierunek")
-    public final String getKierunek() {
+    public String getKierunek() {
         return this.kierunekProperty().get();
     }
 
-    public final void setKierunek(String kierunek) {
+    public void setKierunek(String kierunek) {
         kierunekProperty().set(kierunek);
     }
 
@@ -100,11 +106,11 @@ public class Student extends Osoba {
         return mailProperty ;
     }
     @Column(name = "mail")
-    public final String getMail() {
+    public String getMail() {
         return this.mailProperty().get();
     }
 
-    public final void setMail(String mail) {
+    public void setMail(String mail) {
         mailProperty().set(mail);
     }
 
@@ -112,21 +118,19 @@ public class Student extends Osoba {
         return telefonProperty ;
     }
     @Column(name = "telefon")
-    public final String getTelefon() {
+    public String getTelefon() {
         return this.telefonProperty().get();
     }
 
-    public final void setTelefon(String telefon) {
-        mailProperty().set(telefon);
-
+    public void setTelefon(String telefon) {
+        telefonProperty().set(telefon);
     }
 
     public Student(){}
 
-    public Student(String pesel, String telefon, String imie, String nazwisko, String kierunek, String mail){
+    public Student(String imie, String nazwisko, String kierunek, String pesel, String telefon, String mail){
         peselProperty = new SimpleStringProperty(pesel);
         telefonProperty = new SimpleStringProperty(telefon);
-
         imieProperty = new SimpleStringProperty(imie);
         nazwiskoProperty = new SimpleStringProperty(nazwisko);
         kierunekProperty = new SimpleStringProperty(kierunek);

@@ -19,6 +19,7 @@
                   <TableColumn fx:id="kierunekTableColumn" prefWidth="75.0" text="Kierunek" />
                   <TableColumn fx:id="peselTableColumn" prefWidth="75.0" text="PESEL" />
                   <TableColumn fx:id="mailTableColumn" prefWidth="75.0" text="mail" />
+                  <TableColumn fx:id="telefonTableColumn" prefWidth="75.0" text="telefon" />
               </columns>
             </TableView>
          </children>
